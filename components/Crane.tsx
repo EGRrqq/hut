@@ -21,8 +21,8 @@ const CRANE_ID = "crane";
 export default function Crane({
   src,
   alt,
-  width = 180,
-  height = 80,
+  width = 175,
+  height = 72,
   maxOffset = 250,
 }: ICrane) {
   if (!src) throw Error("src prop for the image was not specified");
@@ -32,16 +32,29 @@ export default function Crane({
   usePointerParallax(elRef, { maxOffset });
 
   return (
-    <div id={CRANE_ID} className="flex justify-center-safe">
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        ref={elRef}
-        style={{ willChange: "transform", touchAction: "none" }}
-        priority
-      />
-    </div>
+    <>
+      <section id={CRANE_ID} className="flex justify-center-safe">
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          ref={elRef}
+          style={{ willChange: "transform", touchAction: "none" }}
+          priority
+
+          // basically i need smth like grab prop that grabs tools from toolbox
+        />
+      </section>
+      <div className="flex justify-center-safe">
+        <Image
+          src="./basement.svg"
+          alt="basement"
+          width={465}
+          height={456}
+          priority
+        />
+      </div>
+    </>
   );
 }
