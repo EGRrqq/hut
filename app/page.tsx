@@ -17,24 +17,38 @@ const getCrane = () => {
 const vw = () =>
   Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 
+// how far the image should be able to move left/right from center
+// increase for larger travel range
+const maxOffset = 250;
+
+// most-recent mouse X position
+let latestMouseX: number = 0;
+// prevents scheduling multiple raf callbacks per frame
+let isTicking = false;
+
 function onMouseMove(e: MouseEvent) {
-  // how far the image should be able to move left/right from center
-  // increase for larger travel range
-  const maxOffset = 250;
+  latestMouseX = e.clientX; // mouse x within viewport
 
-  const x = e.clientX; // mouse x within viewport
-  const center = vw() / 2; // center x
-  const ratio = (x - center) / center; // from -1 (left) to 1 (right)
-  const offset = Math.max(-1, Math.min(1, ratio)) * maxOffset;
+  if (!isTicking) {
+    isTicking = true;
+    requestAnimationFrame(() => {
+      const center = vw() / 2; // center x
+      const ratio = (latestMouseX - center) / center; // from -1 (left) to 1 (right)
+      const offset = Math.max(-1, Math.min(1, ratio)) * maxOffset;
 
-  // move only horizontally. keep top fixed
-  // translateX for smoother transforms
-  getCrane().style.transform = `translateX(${offset}px) translateY(0)`;
+      // move only horizontally. keep top fixed
+      // translateX for smoother transforms
+      getCrane().style.transform = `translateX(${offset}px) translateY(0)`;
+
+      // compute and apply transform using latestX
+      isTicking = false;
+    });
+  }
 }
 
 export default function Home() {
   useEffect(() => {
-    window.addEventListener("mousemove", (e) => onMouseMove(e));
+    window.addEventListener("mousemove", onMouseMove);
   }, []);
 
   return (
