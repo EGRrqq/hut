@@ -1,6 +1,6 @@
-type TToolKey = "roof" | "floor" | "basement";
+export type TToolKey = "roof" | "floor" | "basement";
 
-interface IToolEntity {
+export interface IToolEntity {
   // if limit not specified it === infinity
   limit?: number;
   disabled: boolean;
@@ -13,18 +13,18 @@ interface IToolEntity {
   width: number;
 }
 
-interface IGameState {
+export interface IGameState {
   isBasementPlaced: boolean;
-  isFloorPlaced: boolean;
+  floorsPlaced: number;
   isRoofPlaced: boolean;
 }
 
-interface IGameData {
+export interface IGameData {
   tools: Record<TToolKey, IToolEntity>;
   state: IGameState;
 }
 
-const GAMEDATA_INIT: IGameData = {
+export const GAMEDATA_INIT: IGameData = {
   tools: {
     roof: {
       limit: 1,
@@ -55,7 +55,7 @@ const GAMEDATA_INIT: IGameData = {
   },
   state: {
     isBasementPlaced: false,
-    isFloorPlaced: false,
+    floorsPlaced: 0,
     isRoofPlaced: false,
   },
 };
