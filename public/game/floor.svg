@@ -1,0 +1,17 @@
+<svg width="454" height="258" viewBox="0 0 454 258" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="454" height="32" fill="#413939"/>
+<rect y="32.25" width="454" height="32" fill="#413939"/>
+<rect y="64.5" width="454" height="32" fill="#413939"/>
+<rect y="96.75" width="454" height="32" fill="#413939"/>
+<rect y="129" width="454" height="32" fill="#413939"/>
+<rect y="161.25" width="454" height="32" fill="#413939"/>
+<rect y="193.5" width="454" height="32" fill="#413939"/>
+<rect y="225.75" width="454" height="32" fill="#413939"/>
+<rect width="454" height="7" fill="#D70000"/>
+<rect x="39.5" y="69.5" width="132" height="119" fill="#C4FFED" stroke="#6B3F3F" stroke-width="5"/>
+<rect x="103" y="72" width="5" height="114" fill="#6B3F3F"/>
+<rect x="42" y="131" width="4.99999" height="127" transform="rotate(-90 42 131)" fill="#6B3F3F"/>
+<rect x="281.5" y="69.5" width="132" height="119" fill="#C4FFED" stroke="#6B3F3F" stroke-width="5"/>
+<rect x="345" y="72" width="5" height="114" fill="#6B3F3F"/>
+<rect x="284" y="131" width="4.99999" height="127" transform="rotate(-90 284 131)" fill="#6B3F3F"/>
+</svg>
