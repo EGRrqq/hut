@@ -5,14 +5,6 @@
   --foreground: #171717;
 }
 
-*,
-*::after,
-*::before {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -33,4 +25,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 
   min-height: 100dvh;
+}
+
+#basement_icon {
+  position: relative;
+  left: 5%;
 }
