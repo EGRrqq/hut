@@ -1,38 +1,12 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { getInitGameState, placeTool } from "@/lib/gameActions";
 import type { IGameData, IToolEntity, TToolKey } from "@/lib/gameData";
 
-export default function Toolbox() {
-  const [gameData, setGameData] = useState<IGameData | null>(null);
-  const [selectedTool, setSelectedTool] = useState<TToolKey | null>(null);
+interface IToolboxProps {
+  gameData: IGameData;
+  handleToolSelect: (toolKey: TToolKey) => void;
+}
 
-  useEffect(() => {
-    // Initialize game state
-    const initGame = async () => {
-      const initialState = await getInitGameState();
-      setGameData(initialState);
-    };
-
-    initGame();
-  }, []);
-
-  const handleToolSelect = async (toolKey: TToolKey) => {
-    if (!gameData) return;
-
-    const newGameData = await placeTool(toolKey, gameData);
-    setGameData(newGameData);
-    setSelectedTool(toolKey);
-
-    // Here you would also trigger the crane animation to grab the tool
-  };
-
-  if (!gameData) {
-    return <div>Loading game...</div>;
-  }
-
+export default function Toolbox({ gameData, handleToolSelect }: IToolboxProps) {
   return (
     <aside className="w-fit">
       <ol className="grid gap-2 p-2 place-items-center-safe border-2">
@@ -62,7 +36,7 @@ function ToolBtn({
 }: {
   tool: IToolEntity;
   toolKey: TToolKey;
-  onToolSelect: (toolKey: TToolKey) => void;
+  onToolSelect: IToolboxProps["handleToolSelect"];
 }) {
   return (
     <button
