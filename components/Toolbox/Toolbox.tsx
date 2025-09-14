@@ -6,7 +6,6 @@ import type { TToolKey } from "@/lib/gameData";
 
 export default function Toolbox() {
   const { gameData, selectTool } = useGame();
-  console.log(gameData);
 
   return (
     <aside className="w-fit absolute left-0 top-50">

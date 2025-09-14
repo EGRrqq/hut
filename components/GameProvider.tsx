@@ -40,8 +40,8 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
           setIsLoading(false);
         }
       } catch (error) {
-        console.error("Failed to load game state:", error);
         if (isMounted) setIsLoading(false);
+        throw Error(`Failed to load game state: ${error}`);
       }
     }
 

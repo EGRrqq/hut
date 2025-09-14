@@ -19,7 +19,6 @@ export function GameWindow({ children }: IGameWIndowProps) {
     if (!gameData.state.selectedTool) return;
 
     function handleClick() {
-      console.log("click");
       if (gameData.state.selectedTool) placeTool();
     }
 

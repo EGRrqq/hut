@@ -1,18 +1,21 @@
-import Crane from "@/components/Crane";
-import { GameWindow } from "@/components/GameWindow";
-import { GrabbedUnit } from "@/components/GrabbedUnit";
-import Toolbox from "@/components/Toolbox";
+import Image from "next/image";
+import Link from "next/link";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <GameWindow>
-        <Crane>
-          <GrabbedUnit />
-        </Crane>
-      </GameWindow>
-
-      <Toolbox />
+      <Image
+        src="./game.svg"
+        alt="main game prototype image"
+        width={1000}
+        height={1441}
+        className="place-self-center-safe pointer-events-none"
+        priority
+      />
+      <Footer>
+        <Link href="/game">/game</Link>
+      </Footer>
     </>
   );
 }
