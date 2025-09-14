@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { ReactElement } from "react";
-import { useRef } from "react";
+import { type ReactElement, useRef } from "react";
 import usePointerParallax from "@/hooks/usePointerParallax";
 import { useGame } from "./GameProvider";
 

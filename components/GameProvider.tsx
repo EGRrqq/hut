@@ -30,7 +30,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     setGameData(newState);
   };
 
-  if (!gameData) return <div>Loading...</div>;
+  if (!gameData) return <GameLoader />;
 
   return (
     <GameContext.Provider value={{ gameData, selectTool: handleSelectTool }}>
@@ -45,4 +45,17 @@ export function useGame() {
     throw new Error("useGame must be used within a GameProvider");
   }
   return context;
+}
+
+function GameLoader() {
+  return (
+    <p
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      className="h-dvh grid place-items-center-safe text-center font-bold text-3xl"
+    >
+      Loading game…
+    </p>
+  );
 }
