@@ -35,6 +35,7 @@ export default function Crane({ maxOffset = 200, children }: ICrane) {
           alt={gameData.ui.crane.alt}
           width={gameData.ui.crane.width}
           height={gameData.ui.crane.height}
+          className="place-self-center-safe pointer-events-none"
           priority
         />
         {children}

@@ -11,8 +11,6 @@ interface IImage {
 export interface IToolEntity {
   // if limit not specified it === infinity
   limit?: number;
-  placedAmount: number;
-  placed: boolean;
   disabled: boolean;
   keyBindings: string[];
 
@@ -45,8 +43,6 @@ export const GAMEDATA_INIT: IGameData = {
   tools: {
     roof: {
       limit: 1,
-      placedAmount: 0,
-      placed: false,
       disabled: true,
       keyBindings: ["3"],
 
@@ -64,8 +60,6 @@ export const GAMEDATA_INIT: IGameData = {
       },
     },
     floor: {
-      placedAmount: 0,
-      placed: false,
       disabled: true,
       keyBindings: ["2"],
 
@@ -84,8 +78,6 @@ export const GAMEDATA_INIT: IGameData = {
     },
     basement: {
       limit: 1,
-      placedAmount: 0,
-      placed: false,
       disabled: false,
       keyBindings: ["1"],
 

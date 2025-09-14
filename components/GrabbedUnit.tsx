@@ -17,6 +17,7 @@ export function GrabbedUnit() {
           alt={selectedTool.unit.alt}
           width={selectedTool.unit.width}
           height={selectedTool.unit.height}
+          className="place-self-center-safe pointer-events-none"
           priority
         />
       )}
