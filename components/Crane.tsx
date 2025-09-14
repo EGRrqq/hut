@@ -25,26 +25,30 @@ export default function Crane({ maxOffset = 200 }: ICrane) {
     : null;
 
   return (
-    <section id={CRANE_ID} className="grid justify-center-safe">
-      <Image
-        src={gameData.ui.crane.src}
-        alt={gameData.ui.crane.alt}
-        width={gameData.ui.crane.width}
-        height={gameData.ui.crane.height}
-        ref={elRef}
+    <div className="flex-col place-items-center-safe">
+      <section
         style={{ willChange: "transform", touchAction: "none" }}
-        // basically i need smth like grab prop that grabs tools from toolbox
-        priority
-      />
-      {selectedTool && (
+        ref={elRef}
+        id={CRANE_ID}
+        className="grid justify-center-safe w-fit"
+      >
         <Image
-          src={selectedTool.unit.src}
-          alt={selectedTool.unit.alt}
-          width={selectedTool.unit.width}
-          height={selectedTool.unit.height}
+          src={gameData.ui.crane.src}
+          alt={gameData.ui.crane.alt}
+          width={gameData.ui.crane.width}
+          height={gameData.ui.crane.height}
           priority
         />
-      )}
-    </section>
+        {selectedTool && (
+          <Image
+            src={selectedTool.unit.src}
+            alt={selectedTool.unit.alt}
+            width={selectedTool.unit.width}
+            height={selectedTool.unit.height}
+            priority
+          />
+        )}
+      </section>
+    </div>
   );
 }
