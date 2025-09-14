@@ -4,7 +4,7 @@ import Toolbox from "@/components/Toolbox";
 export default function Home() {
   return (
     <>
-      <Crane src="/game/crane.svg" alt="crane" />
+      <Crane />
       <Toolbox />
     </>
   );

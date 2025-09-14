@@ -1,14 +1,15 @@
+"use client";
+
 import Image from "next/image";
-import type { IGameData, IToolEntity, TToolKey } from "@/lib/gameData";
+import type { IToolEntity, TToolKey } from "@/lib/gameData";
+import { useGame } from "./GameProvider";
 
-interface IToolboxProps {
-  gameData: IGameData;
-  handleToolSelect: (toolKey: TToolKey) => void;
-}
+export default function Toolbox() {
+  const { gameData, selectTool } = useGame();
+  console.log(gameData);
 
-export default function Toolbox({ gameData, handleToolSelect }: IToolboxProps) {
   return (
-    <aside className="w-fit">
+    <aside className="w-fit absolute left-0 top-50">
       <ol className="grid gap-2 p-2 place-items-center-safe border-2">
         {(Object.keys(gameData.tools) as TToolKey[]).map((toolKey) => {
           const tool = gameData.tools[toolKey];
@@ -18,7 +19,7 @@ export default function Toolbox({ gameData, handleToolSelect }: IToolboxProps) {
               <ToolBtn
                 tool={tool}
                 toolKey={toolKey}
-                onToolSelect={handleToolSelect}
+                onToolSelect={selectTool}
               />
             </li>
           );
@@ -36,7 +37,7 @@ function ToolBtn({
 }: {
   tool: IToolEntity;
   toolKey: TToolKey;
-  onToolSelect: IToolboxProps["handleToolSelect"];
+  onToolSelect: (key: TToolKey | null) => void;
 }) {
   return (
     <button
@@ -48,10 +49,10 @@ function ToolBtn({
     >
       <Image
         aria-hidden="true"
-        src={tool.src}
-        alt={tool.alt}
-        width={tool.width}
-        height={tool.height}
+        src={tool.icon.src}
+        alt={tool.icon.alt}
+        width={tool.icon.width}
+        height={tool.icon.height}
         id={`${toolKey}_icon`}
         className={`pointer-events-none ${tool.disabled && "grayscale opacity-50"}`}
         priority
