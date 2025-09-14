@@ -4,7 +4,6 @@ import type { IToolEntity, TToolKey } from "@/lib/gameData";
 import { KeyBadge } from "./KeyBadge";
 import { LimitBadge } from "./LimitBadge";
 
-// room for the useContext
 export function ToolBtn({
   tool,
   toolKey,
@@ -29,7 +28,7 @@ export function ToolBtn({
         width={tool.icon.width}
         height={tool.icon.height}
         id={`${toolKey}_icon`}
-        className={`${tool.disabled && "grayscale opacity-50"}`}
+        className={`pointer-events-none ${tool.disabled && "grayscale opacity-50"}`}
         priority
       />
 
