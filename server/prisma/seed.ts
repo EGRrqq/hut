@@ -5,21 +5,21 @@ const prisma = new PrismaClient().$extends(withAccelerate());
 
 async function main() {
   const player1 = prisma.player.upsert({
-    where: { id: 2, nickname: "serega" },
+    where: { id: "523", nickname: "serega" },
     update: {},
-    create: { id: 2, nickname: "serega", score: 25 },
+    create: { id: "523", nickname: "serega" },
   });
 
   const player2 = prisma.player.upsert({
-    where: { id: 128 },
+    where: { id: "623" },
     update: {},
-    create: { id: 128, nickname: "pablo", score: 10 },
+    create: { id: "623", nickname: "pablo" },
   });
 
   const player3 = prisma.player.upsert({
-    where: { id: 112 },
+    where: { id: "qte23" },
     update: {},
-    create: { id: 112, nickname: "buldozer", score: 1 },
+    create: { id: "qte23", nickname: "buldozer" },
   });
 
   console.log({ player1, player2, player3 });
