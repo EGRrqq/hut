@@ -1,17 +1,21 @@
 {
-  "name": "chicken-house",
+  "name": "hut-client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "i:all": "npm i && npm i -C ./express",
     "dev": "next dev --turbopack",
+    "dev:all": "npm run dev && npm run dev -C ./express",
     "build": "next build --turbopack",
+    "build:all": "npm run build && npm run build -C ./express",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write"
   },
   "dependencies": {
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "next": "15.5.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
