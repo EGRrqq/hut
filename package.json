@@ -3,11 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "i:all": "npm i && npm i -C ./express",
     "dev": "next dev --turbopack",
-    "dev:all": "npm run dev && npm run dev -C ./express",
     "build": "next build --turbopack",
-    "build:all": "npm run build && npm run build -C ./express",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write"
