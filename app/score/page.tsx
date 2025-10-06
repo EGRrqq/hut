@@ -4,8 +4,10 @@ export default async function Score() {
 
   return (
     <ul>
-      {players.map((p: { name: string; score: number }) => (
-        <li key={p.name}>{p.name}</li>
+      {players.map((p: { id: string; name: string; score: number }) => (
+        <li key={p.id}>
+          {p.name} - {p.score}
+        </li>
       ))}
     </ul>
   );
