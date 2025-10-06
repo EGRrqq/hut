@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/api/v1/players', (req, res) => {
-    const players = [{ name: "serega", score: 52 }, { name: "vitaly", score: 15 }, { bruh: "qwr", cruh: 32465 }]
+    const players = [{ name: "serega", score: 52 }, { name: "vitaly", score: 15 }]
     res.status(200).json(players)
 })
 
