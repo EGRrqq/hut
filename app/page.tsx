@@ -3,6 +3,9 @@ import Link from "next/link";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
+    const isProduction = process.env.NODE_ENV === 'production';
+    console.log(isProduction)
+
   return (
     <>
       <Image
