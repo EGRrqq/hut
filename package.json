@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "dev:all": "concurrently \"npm run dev -C ./express\" \"npm run dev\"",
     "build": "next build --turbopack",
-    "start": "next start",
+    "start": "next start -p 1234",
     "lint": "biome check",
     "format": "biome format --write"
   },
